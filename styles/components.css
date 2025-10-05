@@ -1,0 +1,291 @@
+/* ===== HEADER ===== */
+.site-header {
+    background: linear-gradient(180deg, var(--primary-dark) 0%, var(--primary) 70%);
+    color: #fff;
+    padding: -4rem -4rem; /* oben & unten etwas Platz, links & rechts raus */
+    box-shadow: var(--shadow-soft);
+}
+.header-content {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+    display: flex;
+    align-items: center;        /* Logo + Text mittig ausrichten */
+    justify-content: flex-start;/* alles nach links */
+    gap: 5rem;               /* etwas mehr Abstand zwischen Logo & Text */
+    text-align: left;
+}
+
+.header-text h1 { font-size: 1.8rem; font-weight: 800; }
+.header-text p { opacity: 0.9; }
+
+/* ===== NAVIGATION ===== */
+.topnav {
+    background: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, .06);
+    box-shadow: var(--shadow-soft);
+}
+.topnav__inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 1rem var(--gutter);
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.topnav__brand {
+    font-weight: 800;
+    margin-right: auto;
+    color: var(--primary-dark);
+}
+.topnav__link {
+    padding: .55rem .9rem;
+    border-radius: 10px;
+    color: #6b7280;
+    text-decoration: none;
+    transition: background .15s ease, color .15s ease;
+}
+.topnav__link:hover {
+    background: #f3f4f6;
+    color: #111;
+}
+.topnav__link--active {
+    background: #fee2e2;
+    color: var(--primary-dark);
+    font-weight: 700;
+}
+
+/* ===== CARDS ===== */
+.card {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(0, 0, 0, .06);
+    padding: 1.5rem;
+}
+.card--accent {
+    border-left: 6px solid var(--primary);
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    padding: .8rem 1.4rem;
+    border-radius: 10px;
+    border: none;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background .2s ease, box-shadow .2s ease;
+}
+.btn:hover {
+    background: var(--primary-dark);
+    box-shadow: var(--shadow-soft);
+}
+
+/* ===== FORM ELEMENTE ===== */
+.label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: .25rem;
+}
+.input, select, textarea {
+    width: 100%;
+    padding: .8rem .9rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    margin-bottom: .75rem;
+    background: #fff;
+    font: inherit;
+}
+
+/* Select hübsch */
+.select { position: relative; }
+.select select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 100%;
+    padding: .8rem 2.5rem .8rem .9rem;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    background: #fff;
+    color: #111;
+    box-shadow: var(--shadow-soft);
+}
+.select::after {
+    content: "▾";
+    position: absolute;
+    right: .8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b7280;
+    pointer-events: none;
+    font-size: 1rem;
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+    margin-top: 3.5rem;
+    background: #fff;
+    border-top: 1px solid rgba(0, 0, 0, .06);
+}
+.footer-content {
+    max-width: var(--container);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem var(--gutter);
+}
+.footer-bottom {
+    border-top: 1px solid rgba(0, 0, 0, .06);
+    text-align: center;
+    padding: 1.25rem;
+    color: #6b7280;
+}
+.footer-links a {
+    display: block;
+    color: var(--primary-dark);
+    text-decoration: none;
+    margin-bottom: .3rem;
+}
+.footer-links a:hover { text-decoration: underline; }
+/* ===== LOGO ===== */
+.logo {
+    height: 200px;              /* vorher 60–65px → jetzt größer */
+    width: auto;
+    object-fit: contain;
+    background: transparent;
+    display: block;
+}
+/* ======== Dropdown-Navigationsmenü ======== */
+.site-nav {
+    background: #fff;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.menu-container {
+    position: relative;
+    display: inline-block;
+    font-family: inherit;
+}
+
+.menu-icon {
+    cursor: pointer;
+    padding: 0.75rem 1.25rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    user-select: none;
+    transition: background 0.2s ease;
+}
+
+.menu-icon:hover {
+    background: rgba(226, 1, 26, 0.1);
+    border-radius: 8px;
+}
+
+.menu-links {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    min-width: 200px;
+    z-index: 10;
+}
+
+/* Zeigt die Links, wenn über das Menüsymbol gehovert wird */
+.menu-container:hover .menu-links {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-links a {
+    padding: 0.75rem 1.25rem;
+    text-decoration: none;
+    color: #555;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.menu-links a:hover {
+    background: rgba(226, 1, 26, 0.08);
+    color: var(--primary-dark);
+}
+
+/* Optional: Animation */
+@keyframes fadeInMenu {
+    from { opacity: 0; transform: translateY(-5px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.menu-container:hover .menu-links {
+    animation: fadeInMenu 0.25s ease forwards;
+}
+
+/* ===== HORIZONTALES DROPDOWN-MENÜ (Override für bestehende Struktur) ===== */
+/* Struktur: .site-nav > .menu-container > .menu-links > a */
+
+.site-nav { position: relative; }
+
+/* Menü-Panel: versteckt bis Hover */
+.site-nav .menu-links{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.12);
+    padding: .5rem .75rem;
+    white-space: nowrap;              /* verhindert Zeilenumbruch → bleibt in einer Zeile */
+    z-index: 50;
+}
+
+/* Beim Hover anzeigen – WICHTIG: horizontal */
+.site-nav .menu-container:hover .menu-links{
+    display: flex;
+    flex-direction: row;              /* <— macht es horizontal */
+    align-items: center;
+    gap: .5rem;                       /* Abstand zwischen Links */
+}
+
+/* Links selbst */
+.site-nav .menu-links a{
+    display: block;
+    padding: .6rem .8rem;
+    text-decoration: none;
+    color: #555;
+    border-radius: 8px;
+    transition: background .2s ease, color .2s ease;
+}
+.site-nav .menu-links a:hover{
+    background: rgba(226,1,26,.08);
+    color: var(--primary-dark);
+}
+
+/* Kleine Einblend-Animation (optional) */
+.site-nav .menu-links{
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity .2s ease, transform .2s ease;
+}
+.site-nav .menu-container:hover .menu-links{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Optional: auf sehr schmalen Bildschirmen wieder vertikal lassen */
+@media (max-width: 700px){
+    .site-nav .menu-container:hover .menu-links{
+        right: 0; left: auto;
+        flex-direction: column;         /* Mobil: wieder vertikal */
+    }
+}

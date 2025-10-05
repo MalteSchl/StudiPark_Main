@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Schaden melden — Parkplatzverwaltung</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/pages.css">
+</head>
+<body>
+
+<!-- Header + Navigation -->
+<header class="site-header">
+    <div class="header-content">
+        <img src="assets/logo.png" alt="Projekt-Logo" class="logo" />
+        <div class="header-text">
+            <h1>Parkplatz-Monitor DHBW Mannheim</h1>
+            <p>Live-Überblick über die aktuelle Auslastung</p>
+        </div>
+    </div>
+</header>
+
+<nav class="topnav">
+    <div class="topnav__inner">
+        <div class="topnav__brand">ParkplatzMonitor</div>
+        <a class="topnav__link" href="index.html">Start</a>
+        <a class="topnav__link" href="about.html">Über uns</a>
+        <a class="topnav__link topnav__link--active" href="schaden.html">Schaden melden</a>
+        <a class="topnav__link" href="login.html">Admin Login</a>
+        <a class="topnav__link" href="datenschutz.html">Datenschutz</a>
+        <a class="topnav__link" href="impressum.html">Impressum</a>
+    </div>
+</nav>
+
+<!-- Inhalt -->
+<main class="page">
+    <header class="page__header">
+        <h1 class="page__title">Schaden melden</h1>
+    </header>
+
+    <div class="page__content">
+        <article class="card" style="max-width:720px">
+            <form action="#" method="post">
+                <label class="label" for="parkplatz">Parkplatz</label>
+                <select id="parkplatz" required>
+                    <option value="">Bitte wählen</option>
+                    <option>Parkplatz 1</option>
+                    <option>Parkplatz 2</option>
+                    <option>Parkplatz 3</option>
+                </select>
+
+                <label class="label" for="beschreibung">Beschreibung des Schadens</label>
+                <textarea id="beschreibung" rows="5" required></textarea>
+
+                <label class="label" for="kontakt">E-Mail (optional)</label>
+                <input class="input" id="kontakt" type="email" placeholder="name@example.com">
+
+                <button class="btn" type="submit">Meldung absenden</button>
+            </form>
+        </article>
+
+        <article class="card">
+            <h2>Hinweis</h2>
+            <p>Dies ist ein Demo-Formular. Ohne Server-Verarbeitung wird die Meldung nicht gespeichert.</p>
+        </article>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>Kontakt</h4>
+            <p>DHBW Mannheim<br>Coblitzallee 1–9<br>68163 Mannheim</p>
+        </div>
+        <div class="footer-section">
+            <h4>Rechtliches</h4>
+            <div class="footer-links">
+                <a href="datenschutz.html">Datenschutz</a>
+                <a href="impressum.html">Impressum</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 Parkplatz-Überwachung</p></div>
+</footer>
+
+</body>
+</html>

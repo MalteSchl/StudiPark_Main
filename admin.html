@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin — Parkplatzverwaltung</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/pages.css">
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-header">
+    <div class="header-content">
+        <img src="assets/logo.png" alt="Projekt-Logo" class="logo" />
+        <div class="header-text">
+            <h1>Parkplatz-Monitor DHBW Mannheim</h1>
+            <p>Adminbereich</p>
+        </div>
+    </div>
+</header>
+
+<!-- Top-Navigation: "Admin Login" als aktiv markieren -->
+<nav class="topnav">
+    <div class="topnav__inner">
+        <div class="topnav__brand">ParkplatzMonitor</div>
+        <a class="topnav__link" href="index.html">Start</a>
+        <a class="topnav__link" href="about.html">Über uns</a>
+        <a class="topnav__link" href="schaden.html">Schaden melden</a>
+        <a class="topnav__link topnav__link--active" href="login.html">Admin Login</a>
+        <a class="topnav__link" href="datenschutz.html">Datenschutz</a>
+        <a class="topnav__link" href="impressum.html">Impressum</a>
+    </div>
+</nav>
+
+<!-- Inhalt -->
+<main class="page">
+    <header class="page__header">
+        <h1 class="page__title">Adminbereich</h1>
+    </header>
+
+    <div class="admin-grid">
+        <!-- Karte: Status bearbeiten -->
+        <article class="card">
+            <h2>Parkplatzstatus bearbeiten</h2>
+
+            <form>
+                <label class="label" for="p1">Parkplatz 1 Status</label>
+                <div class="select">
+                    <select id="p1" name="p1">
+                        <option value="frei">Frei</option>
+                        <option value="teilweise">Teilweise belegt</option>
+                        <option value="voll">Voll</option>
+                    </select>
+                </div>
+
+                <label class="label" for="p2">Parkplatz 2 Status</label>
+                <div class="select">
+                    <select id="p2" name="p2">
+                        <option value="frei">Frei</option>
+                        <option value="teilweise">Teilweise belegt</option>
+                        <option value="voll">Voll</option>
+                    </select>
+                </div>
+
+                <label class="label" for="p3">Parkplatz 3 Status</label>
+                <div class="select">
+                    <select id="p3" name="p3">
+                        <option value="frei">Frei</option>
+                        <option value="teilweise">Teilweise belegt</option>
+                        <option value="voll">Voll</option>
+                    </select>
+                </div>
+
+                <button class="btn" type="submit">Speichern</button>
+            </form>
+            <p class="meta" style="margin-top:.5rem">Hinweis: Demo – ohne Server wird nichts gespeichert.</p>
+        </article>
+
+        <!-- Karte: Statistiken Platzhalter -->
+        <article class="card">
+            <h2>Statistiken (Platzhalter)</h2>
+            <p>Hier könnten Diagramme oder Tabellen mit Auslastung pro Tag/Woche erscheinen.</p>
+
+            <!-- Beispiel-Progressbar -->
+            <div class="section" style="margin-top:1rem">
+                <h3>Heutige Auslastung</h3>
+                <div class="occupancy-bar">
+                    <div class="occupied" style="width: 64%;"></div>
+                    <span>64% belegt</span>
+                </div>
+            </div>
+        </article>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>Kontakt</h4>
+            <p>DHBW Mannheim<br>Coblitzallee 1–9<br>68163 Mannheim</p>
+        </div>
+        <div class="footer-section">
+            <h4>Rechtliches</h4>
+            <div class="footer-links">
+                <a href="datenschutz.html">Datenschutz</a>
+                <a href="impressum.html">Impressum</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 Parkplatz-Überwachung</p></div>
+</footer>
+
+</body>
+</html>

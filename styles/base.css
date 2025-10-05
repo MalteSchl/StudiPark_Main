@@ -1,0 +1,120 @@
+:root {
+    /* ===== Farben ===== */
+    --primary: #E2001A;
+    --primary-dark: #91151B;
+    --primary-light: #FDE2E2;
+    --accent: #7C898F;
+
+    /* ===== Layout & Typo ===== */
+    --radius: 14px;
+    --shadow: 0 8px 24px rgba(0, 0, 0, .08);
+    --shadow-soft: 0 3px 12px rgba(0, 0, 0, .06);
+
+    --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    --container: 1280px;
+    --gutter: 24px;
+    --gap-lg: 3rem;
+    --gap-md: 2rem;
+
+    --bg: #f6f7f8;
+    --text: #222;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+}
+
+/* Überschriften */
+h1, h2, h3, h4, h5 {
+    color: var(--text);
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+/* Container */
+.main-container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 2.75rem calc(var(--gutter)) 4rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 380px;
+    gap: var(--gap-lg);
+}
+
+@media (max-width: 1200px) {
+    .main-container { grid-template-columns: minmax(0, 1fr) 360px; gap: var(--gap-md); }
+}
+@media (max-width: 1024px) {
+    .main-container { grid-template-columns: 1fr; }
+}
+/* --- Menü-Container --- */
+.navbar {
+    position: relative;
+    background-color: #fff;
+    padding: 0.8rem 1.2rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #91151B;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+/* --- Menüliste (versteckt standardmäßig) --- */
+.nav-links {
+    display: none;
+    position: absolute;
+    top: 100%; /* direkt unter dem Button */
+    left: 0;
+    background-color: white;
+    border-radius: 0.4rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    padding: 0.6rem 1rem;
+    white-space: nowrap;
+}
+
+/* --- Menü horizontal anzeigen --- */
+.nav-links a {
+    color: #333;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: #E2001A;
+}
+
+/* --- Wenn über den Menü-Button gehovert wird, Menü zeigen --- */
+.navbar:hover .nav-links {
+    display: flex;
+    flex-direction: row;
+}
+
+/* --- Optional: schöne Animation --- */
+.nav-links {
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: all 0.25s ease-in-out;
+}
+
+.navbar:hover .nav-links {
+    opacity: 1;
+    transform: translateY(0);
+}
