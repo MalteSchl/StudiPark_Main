@@ -1,267 +1,201 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Parkplatz-Monitor DHBW Mannheim</title>
-    <link rel="stylesheet" href="styles/base.css">
-    <link rel="stylesheet" href="styles/components.css">
-    <link rel="stylesheet" href="styles/pages.css">
+  <meta charset="UTF-8">
+  <title>StudiPark - Parkplatzmanagement DHBW Mannheim</title>
+  <link rel="stylesheet" href="index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
 <body>
-
-<!-- Header -->
-<header class="site-header">
+  <header>
     <div class="header-content">
-        <img src="assets/logo.png" alt="Projekt-Logo" class="logo" />
-        <div class="header-text">
-            <h1>Parkplatz-Monitor DHBW Mannheim</h1>
-            <p>Live-Überblick über die aktuelle Auslastung</p>
+      <div class="logo-container">
+        <img src="Logo-StudiPark.jpg" alt="StudiPark Logo" class="logo">
+      </div>
+      <div class="header-text">
+        <h1>StudiPark - DHBW Mannheim Campus Coblitzallee</h1>
+        <p>Intelligentes Parkplatzmanagement System</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="main-container">
+    <main class="content">
+      <section class="parking-overview">
+        <h2>Aktuelle Parkplatzauslastung</h2>
+        <div class="parking-areas">
+          <div class="parking-box" id="parking-ost">
+            <h3>🅿️ Parkplatz Ost</h3>
+            <div class="status available">
+              <span class="count" data-target="85">0</span> frei von 300
+            </div>
+            <small>Letzte Aktualisierung: <span id="time-ost">15:30</span></small>
+            <button class="details-btn" onclick="showDetails('ost')">
+              <span class="icon">📊</span>
+              <span class="text">Details anzeigen (5 Bereiche)</span>
+            </button>
+          </div>
+
+          <div class="parking-box" id="parking-west">
+            <h3>🅿️ Parkplatz West</h3>
+            <div class="status busy">
+              <span class="count" data-target="25">0</span> frei von 200
+            </div>
+            <small>Letzte Aktualisierung: <span id="time-west">15:30</span></small>
+            <button class="details-btn" onclick="showDetails('west')">
+              <span class="icon">📊</span>
+              <span class="text">Details anzeigen (4 Bereiche)</span>
+            </button>
+          </div>
         </div>
-    </div>
-</header>
+      </section>
 
-<!-- Menü -->
-<nav class="site-nav">
-    <div class="menu-container">
-        <div class="menu-icon">☰ Menü</div>
-        <div class="menu-links">
-            <a href="index.html" class="active">Start</a>
-            <a href="about.html">Über uns</a>
-            <a href="schaden.html">Schaden melden</a>
-            <a href="login.html">Admin Login</a>
-            <a href="datenschutz.html">Datenschutz</a>
-            <a href="impressum.html">Impressum</a>
+      <section class="damage-report">
+        <button class="damage-btn" onclick="location.href='schaden.html'">
+          <span class="icon">⚠️</span>
+          <span class="text">Schaden melden</span>
+        </button>
+      </section>
+
+      <section class="traffic-analysis">
+        <h2>🚗 Auslastungsvergleich</h2>
+        <div class="chart-container">
+          <div class="chart-header">
+            <span class="current-time" id="current-time">15:30</span>
+            <span class="comparison">vs. üblicher Verlauf</span>
+          </div>
+          <div class="traffic-chart" id="traffic-chart">
+            <div class="chart-bar" data-time="12:00" data-normal="60" data-current="85">
+              <div class="bar-group">
+                <div class="normal-bar"></div>
+                <div class="current-bar"></div>
+              </div>
+              <span class="time-label">12:00</span>
+            </div>
+            <div class="chart-bar" data-time="13:00" data-normal="65" data-current="92">
+              <div class="bar-group">
+                <div class="normal-bar"></div>
+                <div class="current-bar"></div>
+              </div>
+              <span class="time-label">13:00</span>
+            </div>
+            <div class="chart-bar active" data-time="14:00" data-normal="70" data-current="98">
+              <div class="bar-group">
+                <div class="normal-bar"></div>
+                <div class="current-bar"></div>
+              </div>
+              <span class="time-label">14:00</span>
+            </div>
+            <div class="chart-bar" data-time="15:00" data-normal="75" data-current="88">
+              <div class="bar-group">
+                <div class="normal-bar"></div>
+                <div class="current-bar"></div>
+              </div>
+              <span class="time-label">15:00</span>
+            </div>
+            <div class="chart-bar" data-time="16:00" data-normal="65" data-current="55">
+              <div class="bar-group">
+                <div class="normal-bar"></div>
+                <div class="current-bar"></div>
+              </div>
+              <span class="time-label">16:00</span>
+            </div>
+          </div>
+          <div class="legend">
+            <span class="legend-item"><span class="legend-color normal"></span> Üblich</span>
+            <span class="legend-item"><span class="legend-color current"></span> Aktuell</span>
+          </div>
+          <div class="chart-tooltip" id="chart-tooltip"></div>
         </div>
-    </div>
-</nav>
+      </section>
 
-<!-- Hauptbereich -->
-<main class="main-container">
-    <!-- linke Inhaltsspalte -->
-    <div class="content">
-        <section class="parking-overview">
-            <h2>Aktueller Status</h2>
+      <section class="map-section">
+        <h2>📍 Standort Campus Coblitzallee</h2>
+        <div class="map-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2596.7!2d8.4697!3d49.4875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4797cf2383b0c65d%3A0x1105b8c90448a69d!2sCoblitzallee%201-9%2C%2068163%20Mannheim!5e0!3m2!1sde!2sde!4v1696000000000!5m2!1sde!2sde"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </section>
+    </main>
 
-            <div class="parking-areas">
-                <!-- Parkplatz Ost -->
-                <div class="card card--accent parking-box"
-                     data-name="Parkplatz Ost"
-                     data-total="150"
-                     data-free="85"
-                     data-lat="49.476315"
-                     data-lng="8.493052">
-                    <h3>Parkplatz Ost</h3>
-
-                    <!-- farbige Box (grün/gelb/rot) -->
-                    <div class="availability-box">
-                        <div class="availability-number" data-free>85</div>
-                        <div class="availability-text">frei von <span data-total>150</span></div>
-                    </div>
-
-                    <small class="meta">Letzte Aktualisierung: <span class="js-updated"></span></small>
-                    <button class="btn details-btn" type="button">Details anzeigen</button>
-                </div>
-
-                <!-- Parkplatz West -->
-                <div class="card card--accent parking-box"
-                     data-name="Parkplatz West"
-                     data-total="120"
-                     data-free="12"
-                     data-lat="49.476150"
-                     data-lng="8.488900">
-                    <h3>Parkplatz West</h3>
-
-                    <!-- farbige Box (grün/gelb/rot) -->
-                    <div class="availability-box">
-                        <div class="availability-number" data-free>12</div>
-                        <div class="availability-text">frei von <span data-total>120</span></div>
-                    </div>
-
-                    <small class="meta">Letzte Aktualisierung: <span class="js-updated"></span></small>
-                    <button class="btn details-btn" type="button">Details anzeigen</button>
-                </div>
-
-            </div>
-
-            <!-- Details-Modal -->
-            <div id="park-modal" class="modal" hidden>
-                <div class="modal__dialog">
-                    <button class="modal__close" aria-label="Schließen">×</button>
-
-                    <h3 id="modalTitle">Parkplatz</h3>
-                    <p id="modalText" class="modal__text"></p>
-
-                    <div class="modal__grid">
-                        <div class="modal__stats">
-                            <div class="modal__big" id="mFree">–</div>
-                            <div class="modal__sub" id="mTotal">frei von –</div>
-                            <div class="meter"><div class="meter__fill" id="mFill"></div></div>
-                            <div class="meter__label" id="mPct">–% Auslastung</div>
-                        </div>
-
-                        <div class="modal__map">
-                            <iframe id="modalMap" loading="lazy"
-                                    referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </section>
-
-        <section class="map-section" id="map">
-            <h2>Standort</h2>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2471.038222326889!2d8.5344189!3d49.473839299999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4797cf2383b0c65d%3A0x1105b8c90448a69d!2sDHBW%20Mannheim!5e1!3m2!1sde!2sde!4v1759660782017!5m2!1sde!2sde"
-                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </section>
-
-        <section class="damage-report">
-            <a class="damage-btn" href="schaden.html">
-                <span class="icon">🛠️</span> Schaden melden
-            </a>
-        </section>
-
-        <section class="section">
-            <h2>Auslastungsvergleich</h2>
-            <div class="card" style="padding:1.25rem">
-                <p>Platzhalter für Diagramm oder Tabelle.</p>
-                <p><a href="about.html">Mehr über das Projekt</a></p>
-            </div>
-        </section>
-    </div>
-
-    <!-- rechte Sidebar -->
     <aside class="news-sidebar">
-        <h2>Neuigkeiten</h2>
-
-        <a class="news-item" href="impressum.html">
-            <div class="news-date">05. Oktober 2025</div>
-            <h3>Sensor-Wartung abgeschlossen</h3>
-            <p>Alle Sensoren auf Parkplatz A wieder in Betrieb.</p>
-        </a>
-
-        <a class="news-item" href="datenschutz.html">
-            <div class="news-date">03. Oktober 2025</div>
-            <h3>Datenschutz aktualisiert</h3>
-            <p>Wir haben unsere Hinweise überarbeitet.</p>
-        </a>
-
-        <a class="news-item" href="about.html">
-            <div class="news-date">01. Oktober 2025</div>
-            <h3>Projekt-Infos</h3>
-            <p>Erfahre mehr über Team & Ziele.</p>
-        </a>
+      <h2>📢 Aktuelles</h2>
+      <article class="news-item">
+        <div class="news-date">28. Sep 2025</div>
+        <h3>StudiPark System Launch</h3>
+        <p>Das neue intelligente Parkplatzmanagement-System ist erfolgreich gestartet und bietet Echtzeit-Informationen.</p>
+      </article>
+      
+      <article class="news-item">
+        <div class="news-date">25. Sep 2025</div>
+        <h3>Erweiterung Parkplatz West</h3>
+        <p>Ab Oktober werden 20 zusätzliche Stellplätze im westlichen Bereich geschaffen.</p>
+      </article>
+      
+      <article class="news-item">
+        <div class="news-date">20. Sep 2025</div>
+        <h3>Neue Ladestationen</h3>
+        <p>8 E-Auto Ladestationen wurden installiert und sind ab sofort verfügbar.</p>
+      </article>
     </aside>
-</main>
+  </div>
 
-<!-- Footer -->
-<footer class="site-footer">
-    <div class="footer-content">
-        <div class="footer-section">
-            <h4>Kontakt</h4>
-            <p>DHBW Mannheim<br>Coblitzallee 1–9<br>68163 Mannheim</p>
-        </div>
-        <div class="footer-section">
-            <h4>Rechtliches</h4>
-            <div class="footer-links">
-                <a href="datenschutz.html">Datenschutz</a>
-                <a href="impressum.html">Impressum</a>
-            </div>
-        </div>
+  <!-- Detail Modal -->
+  <div id="detail-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="modal-title">Parkplatz Details</h2>
+      <div id="modal-body" class="modal-body">
+        <!-- Wird dynamisch gefüllt -->
+      </div>
     </div>
-    <div class="footer-bottom"><p>© 2025 Parkplatz-Überwachung</p></div>
-</footer>
+  </div>
 
-<!-- Logik: Zahlen einsetzen + farbige Boxen + Modal -->
-<script>
-    (function(){
-        const boxes = document.querySelectorAll('.parking-box[data-total][data-free]');
-        const now = new Date();
-        const hh = String(now.getHours()).padStart(2,'0');
-        const mm = String(now.getMinutes()).padStart(2,'0');
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <div class="footer-logo">
+          <img src="Logo-StudiPark.jpg" alt="StudiPark" class="footer-logo-img">
+        </div>
+        <p>Intelligentes Parkplatzmanagement<br>
+        für die DHBW Mannheim<br>
+        Campus Coblitzallee</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Navigation</h4>
+        <div class="footer-links">
+          <a href="about.html">Über uns</a>
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="impressum.html">Impressum</a>
+          <a href="schaden.html">Schaden melden</a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Kontakt DHBW</h4>
+        <p>📞 +49 621 4105-0<br>
+        📧 info@dhbw-mannheim.de<br>
+        🌐 www.mannheim.dhbw.de</p>
+      </div>
+      
+<div class="footer-section" style="display: flex; align-items: flex-start; padding-top: 2rem;">
+  <a href="login.html" class="admin-btn">
+    🔐 Admin Login
+  </a>
+</div>
 
-        boxes.forEach(box => {
-            const total = +box.dataset.total || 0;
-            const free  = +box.dataset.free  || 0;
-            const used  = Math.max(0, total - free);
-            const ratioUsed = total ? used / total : 0;
-            const pct = total ? Math.round((used/total)*100) : 0;
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 StudiPark - DHBW Mannheim Parkplatzmanagement System</p>
+    </div>
+  </footer>
 
-            // Texte in der Box
-            const freeEl  = box.querySelector('[data-free]');
-            const totalEl = box.querySelector('[data-total]');
-            if (freeEl)  freeEl.textContent  = free;
-            if (totalEl) totalEl.textContent = total;
-
-            // farbige Auslastungsbox (grün/gelb/rot)
-            const abox = box.querySelector('.availability-box');
-            if (abox){
-                abox.classList.remove('availability--good','availability--warn','availability--bad');
-                if (ratioUsed < 0.5)       abox.classList.add('availability--good'); // <50% belegt → grün
-                else if (ratioUsed < 0.8)  abox.classList.add('availability--warn'); // 50–79% → gelb
-                else                       abox.classList.add('availability--bad');  // ≥80% → rot
-            }
-
-            // Zeitstempel
-            const upd = box.querySelector('.js-updated');
-            if (upd) upd.textContent = `${hh}:${mm}`;
-        });
-
-        // ----- Modal -----
-        const modal = document.getElementById('park-modal');
-        const btnClose = modal.querySelector('.modal__close');
-        const title  = document.getElementById('modalTitle');
-        const text   = document.getElementById('modalText');
-        const mFree  = document.getElementById('mFree');
-        const mTotal = document.getElementById('mTotal');
-        const mFill  = document.getElementById('mFill');
-        const mPct   = document.getElementById('mPct');
-        const map    = document.getElementById('modalMap');
-
-        document.querySelectorAll('.parking-box .details-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const box   = btn.closest('.parking-box');
-                const name  = box.dataset.name || 'Parkplatz';
-                const total = +box.dataset.total || 0;
-                const free  = +box.dataset.free  || 0;
-                const used  = Math.max(0, total - free);
-                const pct   = total ? Math.round((used/total)*100) : 0;
-                const lat   = box.dataset.lat, lng = box.dataset.lng;
-
-                title.textContent = name;
-                text.textContent  = `Aktuelle Auslastung: ${pct}% belegt (${used} von ${total} belegt, ${free} frei).`;
-                mFree.textContent  = free;
-                mTotal.textContent = `frei von ${total}`;
-                mPct.textContent   = `${pct}% Auslastung`;
-
-                // Meter im Modal einfärben + Breite setzen
-                mFill.style.width = pct + '%';
-                mFill.className = 'meter__fill';
-                if (pct < 50)       mFill.classList.add('is-good');
-                else if (pct < 80)  mFill.classList.add('is-warn');
-                else                mFill.classList.add('is-bad');
-
-                // Karte
-                if (lat && lng) {
-                    map.src = `https://www.google.com/maps?q=${lat},${lng}&hl=de&z=17&output=embed`;
-                } else {
-                    map.src = '';
-                }
-
-                modal.hidden = false;
-                document.body.style.overflow = 'hidden';
-            });
-        });
-
-        btnClose.addEventListener('click', () => { modal.hidden = true; document.body.style.overflow = ''; });
-        modal.addEventListener('click', (e) => { if (e.target === modal) { modal.hidden = true; document.body.style.overflow = ''; } });
-    })();
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
