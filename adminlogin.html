@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parkplatzverwaltung - Admin Login</title>
+    <link rel="stylesheet" href="styles/stylesheet.css">
+    <style>
+        /* Zusätzliche CSS für Fokus, Icon-Button und Fehleranzeige */
+
+        button:focus, input:focus {
+            outline: 3px solid #db3434;
+            outline-offset: 2px;
+        }
+
+        .password-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #666;
+            font-size: 1.2em;
+            position: absolute;
+            right: 12px;
+            top: 38px;
+            padding: 0;
+        }
+
+        .form-group.position-relative {
+            position: relative;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.9em;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .visible {
+            display: block;
+        }
+
+        /* Leichter erhöhter Kontrast für Textfelder und Buttons */
+        input[type="email"], input[type="password"], input[type="text"] {
+            border-color: #bbb;
+        }
+
+        button {
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        button:hover, button:focus-visible {
+            background-color: #b93030;
+            box-shadow: 0 0 8px #b93030;
+        }
+
+        /* Responsive Abstände */
+        @media (max-width: 480px) {
+            .form-container {
+                padding: 20px 15px;
+            }
+
+            button {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Parkplatzverwaltung - Admin Login</h1>
+    <div class="form-container">
+        <h2 class="text-center mb-20">Administrator Anmeldung</h2>
+        <form id="loginForm" novalidate>
+            <div class="form-group">
+                <label for="username">Benutzername / E-Mail</label>
+                <input
+                        type="email"
+                        id="username"
+                        name="username"
+                        autocomplete="username"
+                        required
+                        aria-describedby="usernameError">
+                <div id="usernameError" class="error-message">Bitte geben Sie eine gültige E-Mail-Adresse ein.</div>
+            </div>
+            <div class="form-group position-relative">
+                <label for="password">Passwort</label>
+                <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        autocomplete="current-password"
+                        required
+                        aria-describedby="passwordError">
+                <button
+                        type="button"
+                        class="password-toggle"
+                        aria-label="Passwort anzeigen"
+                        aria-pressed="false"
+                        id="togglePassword">&#128065;</button>
+                <div id="passwordError" class="error-message">Bitte geben Sie Ihr Passwort ein.</div>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="rememberMe" name="rememberMe">
+                <label for="rememberMe">Angemeldet bleiben</label>
+            </div>
+            <div style="font-size: 0.85em; color: #777; margin-bottom: 15px;">
+                Hinweis: Für Ihre Sicherheit wird die Sitzung automatisch beendet, wenn keine Aktivität erkannt wird.
+            </div>
+            <button type="submit" class="btn-primary" style="width: 100%;">Anmelden</button>
+            <div class="text-center mt-20">
+                <a href="#" id="forgotPassword">Passwort vergessen?</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    const togglePassword = document.getElementById('togglePassword');
+    const password = document.getElementById('password');
+
+    togglePassword.addEventListener('click', () => {
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        const pressed = togglePassword.getAttribute('aria-pressed') === 'true';
+        togglePassword.setAttribute('aria-pressed', !pressed);
+        togglePassword.innerHTML = type === 'password' ? '&#128065;' : '&#128065;&#xFE0E;'; // Icon bleibt, kann hier verfeinert werden
+    });
+
+    // Einfaches Formularvalidierungsbeispiel
+    const form = document.getElementById('loginForm');
+form.addEventListener('submit', event => {
+event.preventDefault();
+
+let valid = true;
+
+const username = form.username.value.trim();
+const passwordVal = form.password.value.trim();
+
+// Email validieren (einfaches Muster)
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+if (!emailPattern.test(username)) {
+    document.getElementById('usernameError').classList.add('visible');
+    valid = false;
+} else {
+    document.getElementById('usernameError').classList.remove('visible');
+}
+
+if (passwordVal === '') {
+    document.getElementById('passwordError').classList.add('visible');
+    valid = false;
+} else {
+    document.getElementById('passwordError').classList.remove('visible');
+}
+
+if (valid) {
+    if (passwordVal === '12345') {
+        // Weiterleitung zu admin.html
+        window.location.href = 'admin.html';
+    } else {
+        alert("Falsches Passwort");
+    }
+}
+});
+
+</script>
+</body>
+</html>

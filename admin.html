@@ -1,116 +1,261 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin — Parkplatzverwaltung</title>
-    <link rel="stylesheet" href="styles/base.css">
-    <link rel="stylesheet" href="styles/components.css">
-    <link rel="stylesheet" href="styles/pages.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Parkplatzverwaltung</title>
+    <link rel="stylesheet" href="styles/stylesheet.css">
 </head>
 <body>
-<!-- Header -->
-<header class="site-header">
-    <div class="header-content">
-        <img src="assets/logo.png" alt="Projekt-Logo" class="logo" />
-        <div class="header-text">
-            <h1>Parkplatz-Monitor DHBW Mannheim</h1>
-            <p>Adminbereich</p>
+<div class="container">
+    <h1>Admin Dashboard - Parkplatzverwaltung</h1>
+
+    <!-- Dashboard Übersicht -->
+    <h2>Aktuelle Übersicht</h2>
+    <div class="dashboard-grid">
+        <div class="dashboard-card stats-card">
+            <div class="stats-number">67%</div>
+            <div class="stats-label">Gesamtauslastung</div>
+        </div>
+        <div class="dashboard-card stats-card">
+            <div class="stats-number">142</div>
+            <div class="stats-label">Belegte Plätze</div>
+        </div>
+        <div class="dashboard-card stats-card">
+            <div class="stats-number">70</div>
+            <div class="stats-label">Freie Plätze</div>
+        </div>
+        <div class="dashboard-card stats-card">
+            <div class="stats-number">325</div>
+            <div class="stats-label">Tagesbesucher</div>
         </div>
     </div>
-</header>
 
-<!-- Top-Navigation: "Admin Login" als aktiv markieren -->
-<nav class="topnav">
-    <div class="topnav__inner">
-        <div class="topnav__brand">ParkplatzMonitor</div>
-        <a class="topnav__link" href="index.html">Start</a>
-        <a class="topnav__link" href="about.html">Über uns</a>
-        <a class="topnav__link" href="schaden.html">Schaden melden</a>
-        <a class="topnav__link topnav__link--active" href="login.html">Admin Login</a>
-        <a class="topnav__link" href="datenschutz.html">Datenschutz</a>
-        <a class="topnav__link" href="impressum.html">Impressum</a>
+    <!-- Parkplatzbereiche -->
+    <h2>Parkplatzverwaltung</h2>
+    <div class="dashboard-card">
+        <h3>Parkplatzbereiche</h3>
+        <table id="parkingTable">
+            <thead>
+            <tr>
+                <th>Bereich</th>
+                <th>Reihe</th>
+                <th>Kapazität</th>
+                <th>Belegt</th>
+                <th>Frei</th>
+                <th>Status</th>
+                <th>Aktionen</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Parkplatz West - 5 Reihen, je 24 Plätze -->
+            <tr>
+                <td>Parkplatz West</td>
+                <td>Reihe 1</td>
+                <td contenteditable="true">24</td>
+                <td contenteditable="true">0</td>
+                <td>24</td>
+                <td>
+                    <select>
+                        <option value="Online" selected>Online</option>
+                        <option value="Wartung">Wartung</option>
+                    </select>
+                </td>
+                <td><button onclick="saveRow(this)">Speichern</button></td>
+            </tr>
+            <tr>
+                <td>Parkplatz West</td>
+                <td>Reihe 2</td>
+                <td contenteditable="true">24</td>
+                <td contenteditable="true">0</td>
+                <td>24</td>
+                <td>
+                    <select>
+                        <option value="Online" selected>Online</option>
+                        <option value="Wartung">Wartung</option>
+                    </select>
+                </td>
+                <td><button onclick="saveRow(this)">Speichern</button></td>
+            </tr>
+            <tr>
+                <td>Parkplatz West</td>
+                <td>Reihe 3</td>
+                <td contenteditable="true">24</td>
+                <td contenteditable="true">0</td>
+                <td>24</td>
+                <td>
+                    <select>
+                        <option value="Online" selected>Online</option>
+                        <option value="Wartung">Wartung</option>
+                    </select>
+                </td>
+                <td><button onclick="saveRow(this)">Speichern</button></td>
+            </tr>
+            <tr>
+                <td>Parkplatz West</td>
+                <td>Reihe 4</td>
+                <td contenteditable="true">24</td>
+                <td contenteditable="true">0</td>
+                <td>24</td>
+                <td>
+                    <select>
+                        <option value="Online" selected>Online</option>
+                        <option value="Wartung">Wartung</option>
+                    </select>
+                </td>
+                <td><button onclick="saveRow(this)">Speichern</button></td>
+            </tr>
+            <tr>
+                <td>Parkplatz West</td>
+                <td>Reihe 5</td>
+                <td contenteditable="true">24</td>
+                <td contenteditable="true">0</td>
+                <td>24</td>
+                <td>
+                    <select>
+                        <option value="Online" selected>Online</option>
+                        <option value="Wartung">Wartung</option>
+                    </select>
+                </td>
+                <td><button onclick="saveRow(this)">Speichern</button></td>
+            </tr>
+
+            <!-- Parkplatz Ost - 4 Reihen, je 36 Plätze -->
+            <tr>
+                <td>Parkplatz Ost</td>
+                <td>Reihe 1</td>
+                <td contenteditable="true">36</td>
+                <td contenteditable="true">0</td>
+                <td>36</td>
+                <td>
+                    <select>
+                        <option value="Online" selected>Online</option>
+                        <option value="Wartung">Wartung</option>
+                    </select>
+                </td>
+                <td><button onclick="saveRow(this)">Speichern</button></td>
+            </tr>
+            <tr>
+                <td>Parkplatz Ost</td>
+                <td>Reihe 2</td>
+                <td contenteditable="true">36</td>
+                <td contenteditable="true">0</td>
+                <td>36</td>
+                <td>
+                    <select>
+                        <option value="Online" selected>Online</option>
+                        <option value="Wartung">Wartung</option>
+                    </select>
+                </td>
+                <td><button onclick="saveRow(this)">Speichern</button></td>
+            </tr>
+            <tr>
+                <td>Parkplatz Ost</td>
+                <td>Reihe 3</td>
+                <td contenteditable="true">36</td>
+                <td contenteditable="true">0</td>
+                <td>36</td>
+                <td>
+                    <select>
+                        <option value="Online" selected>Online</option>
+                        <option value="Wartung">Wartung</option>
+                    </select>
+                </td>
+                <td><button onclick="saveRow(this)">Speichern</button></td>
+            </tr>
+            <tr>
+                <td>Parkplatz Ost</td>
+                <td>Reihe 4</td>
+                <td contenteditable="true">36</td>
+                <td contenteditable="true">0</td>
+                <td>36</td>
+                <td>
+                    <select>
+                        <option value="Online" selected>Online</option>
+                        <option value="Wartung">Wartung</option>
+                    </select>
+                </td>
+                <td><button onclick="saveRow(this)">Speichern</button></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <script>
+            // Automatische Aktualisierung "Frei" mit keyup-Event
+            document.querySelectorAll("#parkingTable tbody tr").forEach(row => {
+              const kapazitaetCell = row.cells[2];
+              const belegtCell = row.cells[3];
+              const freiCell = row.cells[4];
+
+              function updateFrei() {
+                const kapazitaet = parseInt(kapazitaetCell.textContent) || 0;
+                const belegt = parseInt(belegtCell.textContent) || 0;
+                const frei = kapazitaet - belegt;
+                freiCell.textContent = frei >= 0 ? frei : 0;
+              }
+
+              kapazitaetCell.addEventListener("keyup", updateFrei);
+              belegtCell.addEventListener("keyup", updateFrei);
+
+              updateFrei();
+            });
+
+            // Speichern-Funktion (Simulation)
+            function saveRow(button) {
+              const row = button.closest("tr");
+              const bereich = row.cells[0].textContent.trim();
+              const reihe = row.cells[1].textContent.trim();
+              const kapazitaet = row.cells[2].textContent.trim();
+              const belegt = row.cells[3].textContent.trim();
+              const frei = row.cells[4].textContent.trim();
+              const status = row.cells[5].querySelector("select").value;
+
+              const daten = { bereich, reihe, kapazitaet, belegt, frei, status };
+
+              console.log("Gespeicherte Daten:", daten);
+              alert("Daten gespeichert (Simulation). Siehe Konsole für Details.");
+            }
+        </script>
+        <div class="mt-20">
+            <button class="btn-success">Neuen Parkplatzbereich hinzufügen</button>
+        </div>
     </div>
-</nav>
 
-<!-- Inhalt -->
-<main class="page">
-    <header class="page__header">
-        <h1 class="page__title">Adminbereich</h1>
-    </header>
-
-    <div class="admin-grid">
-        <!-- Karte: Status bearbeiten -->
-        <article class="card">
-            <h2>Parkplatzstatus bearbeiten</h2>
-
-            <form>
-                <label class="label" for="p1">Parkplatz 1 Status</label>
-                <div class="select">
-                    <select id="p1" name="p1">
-                        <option value="frei">Frei</option>
-                        <option value="teilweise">Teilweise belegt</option>
-                        <option value="voll">Voll</option>
-                    </select>
-                </div>
-
-                <label class="label" for="p2">Parkplatz 2 Status</label>
-                <div class="select">
-                    <select id="p2" name="p2">
-                        <option value="frei">Frei</option>
-                        <option value="teilweise">Teilweise belegt</option>
-                        <option value="voll">Voll</option>
-                    </select>
-                </div>
-
-                <label class="label" for="p3">Parkplatz 3 Status</label>
-                <div class="select">
-                    <select id="p3" name="p3">
-                        <option value="frei">Frei</option>
-                        <option value="teilweise">Teilweise belegt</option>
-                        <option value="voll">Voll</option>
-                    </select>
-                </div>
-
-                <button class="btn" type="submit">Speichern</button>
-            </form>
-            <p class="meta" style="margin-top:.5rem">Hinweis: Demo – ohne Server wird nichts gespeichert.</p>
-        </article>
-
-        <!-- Karte: Statistiken Platzhalter -->
-        <article class="card">
-            <h2>Statistiken (Platzhalter)</h2>
-            <p>Hier könnten Diagramme oder Tabellen mit Auslastung pro Tag/Woche erscheinen.</p>
-
-            <!-- Beispiel-Progressbar -->
-            <div class="section" style="margin-top:1rem">
-                <h3>Heutige Auslastung</h3>
-                <div class="occupancy-bar">
-                    <div class="occupied" style="width: 64%;"></div>
-                    <span>64% belegt</span>
-                </div>
+    <!-- Berichte & Statistiken -->
+    <h2>Berichte & Statistiken</h2>
+    <div class="dashboard-grid">
+        <div class="dashboard-card">
+            <h3>Auslastungsberichte</h3>
+            <label for="reportDate">Datum auswählen:</label>
+            <input type="date" id="reportDate" name="reportDate">
+            <div class="mt-20">
+                <button class="btn-primary">CSV Export</button>
+                <button class="btn-primary">Excel Export</button>
             </div>
-        </article>
-    </div>
-</main>
-
-<!-- Footer -->
-<footer class="site-footer">
-    <div class="footer-content">
-        <div class="footer-section">
-            <h4>Kontakt</h4>
-            <p>DHBW Mannheim<br>Coblitzallee 1–9<br>68163 Mannheim</p>
         </div>
-        <div class="footer-section">
-            <h4>Rechtliches</h4>
-            <div class="footer-links">
-                <a href="datenschutz.html">Datenschutz</a>
-                <a href="impressum.html">Impressum</a>
-            </div>
+        <div class="dashboard-card">
+            <h3>Heatmap der beliebtesten Bereiche</h3>
+            <p>Parkplatz West - Reihe 1: 85% Auslastung</p>
+            <p>Parkplatz Ost - Reihe 1: 75% Auslastung</p>
+            <p>Parkplatz West - Reihe 2: 62% Auslastung</p>
+            <p>Parkplatz Ost - Reihe 2: 67% Auslastung</p>
         </div>
     </div>
-    <div class="footer-bottom"><p>© 2025 Parkplatz-Überwachung</p></div>
-</footer>
 
+    <!-- Systemeinstellungen -->
+    <h2>Systemeinstellungen</h2>
+    <div class="dashboard-card">
+        <h3>Öffnungszeiten konfigurieren</h3>
+        <div class="form-group">
+            <label for="openTime">Öffnungszeit:</label>
+            <input type="time" id="openTime" name="openTime" value="06:00">
+        </div>
+        <div class="form-group">
+            <label for="closeTime">Schließzeit:</label>
+            <input type="time" id="closeTime" name="closeTime" value="22:00">
+        </div>
+        <button class="btn-success">Einstellungen speichern</button>
+    </div>
+</div>
 </body>
 </html>
