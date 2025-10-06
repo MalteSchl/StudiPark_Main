@@ -1,156 +1,197 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Über uns — Parkplatzverwaltung</title>
-    <link rel="stylesheet" href="styles/base.css">
-    <link rel="stylesheet" href="styles/components.css">
-    <link rel="stylesheet" href="styles/pages.css">
+  <meta charset="UTF-8">
+  <title>Über uns - StudiPark DHBW Mannheim</title>
+  <link rel="stylesheet" href="styles/index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-
-<!-- Header / Hero -->
-<header class="site-header">
+  <!-- HEADER WIE BEI INDEX -->
+  <header>
     <div class="header-content">
-        <img src="assets/logo.png" alt="StudiPark Logo" class="logo" />
-        <div class="header-text">
-            <h1>Parkplatz-Monitor DHBW Mannheim</h1>
-            <p>Über das Parkplatzmanagement-System</p>
-        </div>
+      <div class="logo-container">
+        <img src="assets/Logo-StudiPark.jpg" alt="StudiPark Logo" class="logo">
+      </div>
+      <div class="header-text">
+        <h1>StudiPark - DHBW Mannheim Campus Coblitzallee</h1>
+        <p>Intelligentes Parkplatzmanagement System</p>
+      </div>
     </div>
-</header>
+  </header>
 
-<!-- Dropdown-Navigation (Menü-Icon + horizontales Menü beim Hover) -->
-<nav class="site-nav">
-    <div class="menu-container">
-        <div class="menu-icon">☰ Menü</div>
-        <div class="menu-links">
-            <a class="topnav__link" href="index.html">Start</a>
-            <a class="topnav__link topnav__link--active" href="about.html">Über uns</a>
-            <a class="topnav__link" href="schaden.html">Schaden melden</a>
-            <a class="topnav__link" href="login.html">Admin Login</a>
-            <a class="topnav__link" href="datenschutz.html">Datenschutz</a>
-            <a class="topnav__link" href="impressum.html">Impressum</a>
-        </div>
+  <!-- NAVIGATION (optional) -->
+  <nav class="page-nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-link">← Zurück zur Übersicht</a>
     </div>
-</nav>
+  </nav>
 
-<!-- Inhalt -->
-<main class="page">
-    <header class="page__header">
-        <h1 class="page__title">Über das Parkplatzmanagementsystem</h1>
-        <p class="page__subtitle" style="color:#6b7280;">Informationen zu Zweck, Funktionen und Technik unseres Systems</p>
-    </header>
+  <!-- HAUPTINHALT -->
+  <div class="main-container">
+    <main class="content about-content">
+      <section class="about-section">
+        <h1>Über StudiPark</h1>
+        
+        <div class="about-intro">
+          <h2>Beschreibung der Parkplatzverwaltungssoftware</h2>
+          <p class="intro-text">
+            Unser innovatives Parkplatzmanagementsystem für die DHBW bietet eine effiziente und 
+            benutzerfreundliche Lösung zur Verwaltung der Campus-Parkplätze. Das System überwacht 
+            die Auslastung in Echtzeit und optimiert die Parkplatznutzung für Studierende und Mitarbeiter.
+          </p>
+        </div>
 
-    <div class="page__content">
+        <div class="features-grid">
+          <div class="feature-card">
+            <h3>📊 Echtzeitüberwachung</h3>
+            <ul>
+              <li>Echtzeitüberwachung der Parkplatzauslastung über Schranken-basierte Sensoren</li>
+              <li>Automatische Erfassung von Ein- und Ausfahrten pro Reihe</li>
+              <li>Getrennte Verwaltung der Parkplätze <strong>West</strong> und <strong>Ost</strong></li>
+            </ul>
+          </div>
 
-        <!-- Über das System -->
-        <section class="card">
-            <h2>Über das System</h2>
-            <p><strong>Beschreibung der Parkplatzverwaltungssoftware</strong></p>
+          <div class="feature-card">
+            <h3>🎯 Hauptfunktionen</h3>
+            <ul>
+              <li>Kostenlose Nutzung für alle Studierenden</li>
+              <li>Detaillierte Statistiken und Auslastungsberichte</li>
+              <li>Schadensmeldungen und -verfolgung</li>
+              <li>Responsive Web-Interface für alle Geräte</li>
+              <li>DSGVO-konforme Datenverarbeitung</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <h3>⚙️ Technische Spezifikationen</h3>
+            <ul>
+              <li>Reihen-basierte Erfassung mit je 2 Schranken pro Reihe</li>
+              <li>Web-basierte Benutzeroberfläche</li>
+              <li>Responsive Design für Desktop und Mobile</li>
+              <li>Echtzeit-Dashboard für Administratoren</li>
+              <li>Automatische Datenexportfunktionen (CSV/Excel)</li>
+              <li>Sichere Authentifizierung für Admin-Bereiche</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="vision-mission">
+          <div class="vision-card">
+            <h3>🎯 Vision</h3>
             <p>
-                Unser innovatives Parkplatzmanagementsystem für die DHBW bietet eine effiziente und benutzerfreundliche
-                Lösung zur Verwaltung der Campus-Parkplätze. Das System überwacht die Auslastung in Echtzeit und optimiert
-                die Parkplatznutzung für Studierende und Mitarbeiter.
+              Wir streben eine optimale Nutzung der Campus-Parkplätze an, um Stress und 
+              Suchzeiten für Studierende zu minimieren und gleichzeitig eine nachhaltige 
+              Mobilität zu fördern.
             </p>
-        </section>
+          </div>
 
-        <!-- Hauptfunktionen und Vorteile -->
-        <section class="card">
-            <h2>Hauptfunktionen und Vorteile</h2>
-            <ul>
-                <li>Echtzeitüberwachung der Parkplatzauslastung über Schranken-basierte Sensoren</li>
-                <li>Automatische Erfassung von Ein- und Ausfahrten pro Reihe</li>
-                <li>Getrennte Verwaltung der Parkplätze <em>West</em> und <em>Ost</em></li>
-                <li>Kostenlose Nutzung für alle Studierenden</li>
-                <li>Detaillierte Statistiken und Auslastungsberichte</li>
-                <li>Schadensmeldungen und -verfolgung</li>
-                <li>Responsive Web-Interface für alle Geräte</li>
-                <li>DSGVO-konforme Datenverarbeitung</li>
-            </ul>
-        </section>
-
-        <!-- Technische Spezifikationen -->
-        <section class="card">
-            <h2>Technische Spezifikationen</h2>
-            <ul>
-                <li>Reihen-basierte Erfassung mit je 2 Schranken pro Reihe</li>
-                <li>Web-basierte Benutzeroberfläche</li>
-                <li>Responsive Design für Desktop und Mobile</li>
-                <li>Echtzeit-Dashboard für Administratoren</li>
-                <li>Automatische Datenexportfunktionen (CSV/Excel)</li>
-                <li>Sichere Authentifizierung für Admin-Bereiche</li>
-            </ul>
-        </section>
-
-        <!-- Unternehmensinformationen / Vision & Mission -->
-        <section class="card">
-            <h2>Vision und Mission</h2>
-            <p><strong>Vision:</strong> Wir streben eine optimale Nutzung der Campus-Parkplätze an, um Stress und Suchzeiten für Studierende zu minimieren und gleichzeitig eine nachhaltige Mobilität zu fördern.</p>
-            <p><strong>Mission:</strong> Durch innovative Technologie schaffen wir transparente und effiziente Parkraumlösungen, die den Alltag an der DHBW erleichtern und zur Verbesserung der Campus-Erfahrung beitragen.</p>
-        </section>
-
-        <!-- Projektteam -->
-        <section class="card">
-            <h2>Projektteam</h2>
+          <div class="mission-card">
+            <h3>🚀 Mission</h3>
             <p>
-                Dieses System wurde als Studienprojekt an der DHBW entwickelt – von einem engagierten Team aus Studierenden
-                der Fachrichtungen Informatik und Wirtschaftsinformatik.
+              Durch innovative Technologie schaffen wir transparente und effiziente 
+              Parkraumlösungen, die den Alltag an der DHBW erleichtern und zur 
+              Verbesserung der Campus-Erfahrung beitragen.
             </p>
-        </section>
+          </div>
+        </div>
 
-        <!-- Kontakt -->
-        <section class="card">
-            <h2>Kontaktmöglichkeiten</h2>
-            <p>Bei Fragen, Anregungen oder technischen Problemen können Sie uns gerne kontaktieren:</p>
-            <ul>
-                <li><strong>E-Mail:</strong> <a href="mailto:parkplatz@dhbw.de">parkplatz@dhbw.de</a></li>
-                <li><strong>Support-Hotline:</strong> 0711-1234567</li>
-                <li><strong>Campus IT-Support:</strong> Raum A123</li>
-            </ul>
-        </section>
+        <div class="team-section">
+          <h2>👥 Projektteam</h2>
+          <p>
+            Dieses System wurde als Studienprojekt an der DHBW entwickelt – von einem 
+            engagierten Team aus Studierenden der Fachrichtungen Informatik und 
+            Wirtschaftsinformatik.
+          </p>
+        </div>
 
-        <!-- Systemnutzung -->
-        <section class="card">
-            <h2>Systemnutzung</h2>
-
-            <h3>Für Studierende</h3>
-            <ul>
+        <div class="usage-section">
+          <h2>💡 Systemnutzung</h2>
+          
+          <div class="usage-grid">
+            <div class="usage-card student">
+              <h3>🎓 Für Studierende</h3>
+              <ul>
                 <li>Echtzeit-Informationen über verfügbare Parkplätze</li>
                 <li>Kostenlose Nutzung aller Campus-Parkplätze</li>
                 <li>Einfache Schadensmeldung über das Web-Interface</li>
                 <li>Transparente Informationen zu Auslastungszeiten</li>
-            </ul>
+              </ul>
+            </div>
 
-            <h3>Für Administratoren</h3>
-            <ul>
+            <div class="usage-card admin">
+              <h3>👨‍💼 Für Administratoren</h3>
+              <ul>
                 <li>Vollständige Übersicht aller Parkplatzbereiche</li>
                 <li>Detaillierte Statistiken und Berichte</li>
                 <li>Schadensverfolgung und -bearbeitung</li>
                 <li>Systemkonfiguration und Wartung</li>
-            </ul>
-        </section>
-
-    </div>
-</main>
-
-<!-- Footer -->
-<footer class="site-footer">
-    <div class="footer-content">
-        <div class="footer-section">
-            <h4>Kontakt</h4>
-            <p>DHBW Mannheim<br>Coblitzallee 1–9<br>68163 Mannheim</p>
-        </div>
-        <div class="footer-section">
-            <h4>Rechtliches</h4>
-            <div class="footer-links">
-                <a href="datenschutz.html">Datenschutz</a>
-                <a href="impressum.html">Impressum</a>
+              </ul>
             </div>
+          </div>
         </div>
+
+        <div class="contact-section">
+          <h2>📞 Kontaktmöglichkeiten</h2>
+          <p>Bei Fragen, Anregungen oder technischen Problemen können Sie uns gerne kontaktieren:</p>
+          
+          <div class="contact-grid">
+            <div class="contact-item">
+              <strong>📧 E-Mail:</strong> parkplatz@dhbw.de
+            </div>
+            <div class="contact-item">
+              <strong>📞 Support-Hotline:</strong> 0711-1234567
+            </div>
+            <div class="contact-item">
+              <strong>🏢 Campus IT-Support:</strong> Raum A123
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- FOOTER WIE BEI INDEX -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <div class="footer-logo">
+        <img src="assets/Logo-StudiPark.jpg" alt="StudiPark" class="footer-logo-img">
+      </div>
+      <p>Intelligentes Parkplatzmanagement<br>
+      für die DHBW Mannheim<br>
+      Campus Coblitzallee</p>
     </div>
-    <div class="footer-bottom"><p>© 2025 Parkplatz-Überwachung</p></div>
+    
+    <div class="footer-section">
+      <h4>Navigation</h4>
+      <div class="footer-links">
+        <a href="index.html">Startseite</a>
+        <a href="about.html">Über uns</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="schaden.html">Schaden melden</a>
+      </div>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Kontakt DHBW</h4>
+      <p>📞 +49 621 4105-0<br>
+      📧 info@dhbw-mannheim.de<br>
+      🌐 www.mannheim.dhbw.de</p>
+    </div>
+    
+    <!-- SEPARATE ADMIN SEKTION - GENAU WIE IN INDEX -->
+    <div class="footer-section">
+      <a href="login.html" class="admin-btn">
+        🔐 Admin Login
+      </a>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2025 StudiPark - DHBW Mannheim Parkplatzmanagement System</p>
+  </div>
 </footer>
 
 </body>
