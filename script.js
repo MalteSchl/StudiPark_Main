@@ -427,3 +427,19 @@ function requestScrollUpdate() {
 }
 
 window.addEventListener('scroll', requestScrollUpdate);
+
+document.addEventListener('DOMContentLoaded', () => {
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('cookie-accept-btn');
+
+  // Prüfen, ob Cookie-Einwilligung bereits existiert
+  if (localStorage.getItem('cookieAccepted') === 'true') {
+    banner.classList.add('hidden');
+  }
+
+  acceptBtn.addEventListener('click', () => {
+    localStorage.setItem('cookieAccepted', 'true');
+    banner.classList.add('hidden');
+  });
+});
+
