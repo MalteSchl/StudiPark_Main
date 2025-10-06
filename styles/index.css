@@ -676,8 +676,8 @@ header {
   font-size: 0.9rem;
 }
 
-.footer-logo {
   margin-bottom: 1.5rem;
+.footer-logo {
   text-align: left;                    /* Links ausgerichtet statt zentriert */
   display: flex;
   align-items: center;                 /* Vertikal zentriert */
