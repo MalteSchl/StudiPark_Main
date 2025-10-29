@@ -2,260 +2,99 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Parkplatzverwaltung</title>
+    <title>Admin – StudiPark</title>
+    <!-- Stylesheet-Einbindung -->
     <link rel="stylesheet" href="styles/stylesheet.css">
 </head>
-<body>
-<div class="container">
-    <h1>Admin Dashboard - Parkplatzverwaltung</h1>
+<body class="admin">
 
-    <!-- Dashboard Übersicht -->
-    <h2>Aktuelle Übersicht</h2>
-    <div class="dashboard-grid">
-        <div class="dashboard-card stats-card">
-            <div class="stats-number">67%</div>
-            <div class="stats-label">Gesamtauslastung</div>
-        </div>
-        <div class="dashboard-card stats-card">
-            <div class="stats-number">142</div>
-            <div class="stats-label">Belegte Plätze</div>
-        </div>
-        <div class="dashboard-card stats-card">
-            <div class="stats-number">70</div>
-            <div class="stats-label">Freie Plätze</div>
-        </div>
-        <div class="dashboard-card stats-card">
-            <div class="stats-number">325</div>
-            <div class="stats-label">Tagesbesucher</div>
-        </div>
-    </div>
+<!-- Überschrift der Admin-Seite -->
+<h1>Admin – StudiPark</h1>
 
-    <!-- Parkplatzbereiche -->
-    <h2>Parkplatzverwaltung</h2>
-    <div class="dashboard-card">
-        <h3>Parkplatzbereiche</h3>
-        <table id="parkingTable">
-            <thead>
-            <tr>
-                <th>Bereich</th>
-                <th>Reihe</th>
-                <th>Kapazität</th>
-                <th>Belegt</th>
-                <th>Frei</th>
-                <th>Status</th>
-                <th>Aktionen</th>
-            </tr>
-            </thead>
-            <tbody>
-            <!-- Parkplatz West - 5 Reihen, je 24 Plätze -->
-            <tr>
-                <td>Parkplatz West</td>
-                <td>Reihe 1</td>
-                <td contenteditable="true">24</td>
-                <td contenteditable="true">0</td>
-                <td>24</td>
-                <td>
-                    <select>
-                        <option value="Online" selected>Online</option>
-                        <option value="Wartung">Wartung</option>
-                    </select>
-                </td>
-                <td><button onclick="saveRow(this)">Speichern</button></td>
-            </tr>
-            <tr>
-                <td>Parkplatz West</td>
-                <td>Reihe 2</td>
-                <td contenteditable="true">24</td>
-                <td contenteditable="true">0</td>
-                <td>24</td>
-                <td>
-                    <select>
-                        <option value="Online" selected>Online</option>
-                        <option value="Wartung">Wartung</option>
-                    </select>
-                </td>
-                <td><button onclick="saveRow(this)">Speichern</button></td>
-            </tr>
-            <tr>
-                <td>Parkplatz West</td>
-                <td>Reihe 3</td>
-                <td contenteditable="true">24</td>
-                <td contenteditable="true">0</td>
-                <td>24</td>
-                <td>
-                    <select>
-                        <option value="Online" selected>Online</option>
-                        <option value="Wartung">Wartung</option>
-                    </select>
-                </td>
-                <td><button onclick="saveRow(this)">Speichern</button></td>
-            </tr>
-            <tr>
-                <td>Parkplatz West</td>
-                <td>Reihe 4</td>
-                <td contenteditable="true">24</td>
-                <td contenteditable="true">0</td>
-                <td>24</td>
-                <td>
-                    <select>
-                        <option value="Online" selected>Online</option>
-                        <option value="Wartung">Wartung</option>
-                    </select>
-                </td>
-                <td><button onclick="saveRow(this)">Speichern</button></td>
-            </tr>
-            <tr>
-                <td>Parkplatz West</td>
-                <td>Reihe 5</td>
-                <td contenteditable="true">24</td>
-                <td contenteditable="true">0</td>
-                <td>24</td>
-                <td>
-                    <select>
-                        <option value="Online" selected>Online</option>
-                        <option value="Wartung">Wartung</option>
-                    </select>
-                </td>
-                <td><button onclick="saveRow(this)">Speichern</button></td>
-            </tr>
+<!-- Hauptnavigation / Dashboard-Bereich -->
+<table id="menu">
+    <tr>
+        <td>
+            <!-- Dashboard mit Auslastungsdaten -->
+            <div id="dashboard" style="display: flex; gap: 2em;">
+                <!-- Gesamtauslastung aller Parkplätze -->
+                <div id="totalContainer">
+                    <h2>Gesamtauslastung</h2>
+                    <span id="totalPercent"></span> <!-- Prozentwert wird per JS eingefügt -->
+                </div>
 
-            <!-- Parkplatz Ost - 4 Reihen, je 36 Plätze -->
-            <tr>
-                <td>Parkplatz Ost</td>
-                <td>Reihe 1</td>
-                <td contenteditable="true">36</td>
-                <td contenteditable="true">0</td>
-                <td>36</td>
-                <td>
-                    <select>
-                        <option value="Online" selected>Online</option>
-                        <option value="Wartung">Wartung</option>
-                    </select>
-                </td>
-                <td><button onclick="saveRow(this)">Speichern</button></td>
-            </tr>
-            <tr>
-                <td>Parkplatz Ost</td>
-                <td>Reihe 2</td>
-                <td contenteditable="true">36</td>
-                <td contenteditable="true">0</td>
-                <td>36</td>
-                <td>
-                    <select>
-                        <option value="Online" selected>Online</option>
-                        <option value="Wartung">Wartung</option>
-                    </select>
-                </td>
-                <td><button onclick="saveRow(this)">Speichern</button></td>
-            </tr>
-            <tr>
-                <td>Parkplatz Ost</td>
-                <td>Reihe 3</td>
-                <td contenteditable="true">36</td>
-                <td contenteditable="true">0</td>
-                <td>36</td>
-                <td>
-                    <select>
-                        <option value="Online" selected>Online</option>
-                        <option value="Wartung">Wartung</option>
-                    </select>
-                </td>
-                <td><button onclick="saveRow(this)">Speichern</button></td>
-            </tr>
-            <tr>
-                <td>Parkplatz Ost</td>
-                <td>Reihe 4</td>
-                <td contenteditable="true">36</td>
-                <td contenteditable="true">0</td>
-                <td>36</td>
-                <td>
-                    <select>
-                        <option value="Online" selected>Online</option>
-                        <option value="Wartung">Wartung</option>
-                    </select>
-                </td>
-                <td><button onclick="saveRow(this)">Speichern</button></td>
-            </tr>
-            </tbody>
-        </table>
+                <!-- Parkplatz Ost -->
+                <div id="ostContainer">
+                    <h2>Parkplatz Ost</h2>
+                    <span id="ostPercent"></span> <!-- Prozentwert aus JS -->
+                </div>
 
-        <script>
-            // Automatische Aktualisierung "Frei" mit keyup-Event
-            document.querySelectorAll("#parkingTable tbody tr").forEach(row => {
-              const kapazitaetCell = row.cells[2];
-              const belegtCell = row.cells[3];
-              const freiCell = row.cells[4];
-
-              function updateFrei() {
-                const kapazitaet = parseInt(kapazitaetCell.textContent) || 0;
-                const belegt = parseInt(belegtCell.textContent) || 0;
-                const frei = kapazitaet - belegt;
-                freiCell.textContent = frei >= 0 ? frei : 0;
-              }
-
-              kapazitaetCell.addEventListener("keyup", updateFrei);
-              belegtCell.addEventListener("keyup", updateFrei);
-
-              updateFrei();
-            });
-
-            // Speichern-Funktion (Simulation)
-            function saveRow(button) {
-              const row = button.closest("tr");
-              const bereich = row.cells[0].textContent.trim();
-              const reihe = row.cells[1].textContent.trim();
-              const kapazitaet = row.cells[2].textContent.trim();
-              const belegt = row.cells[3].textContent.trim();
-              const frei = row.cells[4].textContent.trim();
-              const status = row.cells[5].querySelector("select").value;
-
-              const daten = { bereich, reihe, kapazitaet, belegt, frei, status };
-
-              console.log("Gespeicherte Daten:", daten);
-              alert("Daten gespeichert (Simulation). Siehe Konsole für Details.");
-            }
-        </script>
-        <div class="mt-20">
-            <button class="btn-success">Neuen Parkplatzbereich hinzufügen</button>
-        </div>
-    </div>
-
-    <!-- Berichte & Statistiken -->
-    <h2>Berichte & Statistiken</h2>
-    <div class="dashboard-grid">
-        <div class="dashboard-card">
-            <h3>Auslastungsberichte</h3>
-            <label for="reportDate">Datum auswählen:</label>
-            <input type="date" id="reportDate" name="reportDate">
-            <div class="mt-20">
-                <button class="btn-primary">CSV Export</button>
-                <button class="btn-primary">Excel Export</button>
+                <!-- Parkplatz West -->
+                <div id="westContainer">
+                    <h2>Parkplatz West</h2>
+                    <span id="westPercent"></span> <!-- Prozentwert aus JS -->
+                </div>
             </div>
-        </div>
-        <div class="dashboard-card">
-            <h3>Heatmap der beliebtesten Bereiche</h3>
-            <p>Parkplatz West - Reihe 1: 85% Auslastung</p>
-            <p>Parkplatz Ost - Reihe 1: 75% Auslastung</p>
-            <p>Parkplatz West - Reihe 2: 62% Auslastung</p>
-            <p>Parkplatz Ost - Reihe 2: 67% Auslastung</p>
-        </div>
-    </div>
+        </td>
+    </tr>
+</table>
+<hr>
+<!-- Abschnitt: Parkplatzverwaltung ------------------------------------------------------------------------------------>
+<section>
+    <h2>
+        Parkplatzverwaltung
+    </h2>
+    <!-- Button zum Hinzufügen neuer Reihen -->
+    <button id="addRowBtn">
+        Neue Parkreihe hinzufügen
+    </button>
+    <!-- Hier wird die Parktabelle in JavaScript erzeugt -->
+    <div id="parkingTableContainer"></div>
+</section>
+<hr>
+<!-- Abschnitt: Schadensmeldungen -------------------------------------------------------------------------------------->
+<section id="damageReportsSection">
+    <h2>Schadensmeldungen</h2>
+    <!-- Tabelle für gemeldete Schäden -->
+    <table id="damageReportsTable">
+        <thead>
+        <tr>
+            <th>E-Mail</th>
+            <th>Datum & Uhrzeit</th>
+            <th>Schadensbeschreibung</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Zeilen werden dynamisch über JS eingefügt -->
+        </tbody>
+    </table>
+</section>
+<hr>
+<!-- Abschnitt: Berichte -->
+<section>
+    <h2>Berichte</h2>
+    <!-- Eingabe für Berichtsdatum -->
+    <label for="reportDate">Berichtsdatum:</label>
+    <input type="date" id="reportDate">
 
-    <!-- Systemeinstellungen -->
-    <h2>Systemeinstellungen</h2>
-    <div class="dashboard-card">
-        <h3>Öffnungszeiten konfigurieren</h3>
-        <div class="form-group">
-            <label for="openTime">Öffnungszeit:</label>
-            <input type="time" id="openTime" name="openTime" value="06:00">
-        </div>
-        <div class="form-group">
-            <label for="closeTime">Schließzeit:</label>
-            <input type="time" id="closeTime" name="closeTime" value="22:00">
-        </div>
-        <button class="btn-success">Einstellungen speichern</button>
+    <!-- Buttons für Datenexport -->
+    <button id="exportCSV">CSV Export</button>
+    <button id="exportExcel">Excel Export</button>
+</section>
+
+<!-- Einbindung der JavaScript-Datei mit Logik -->
+<script src="admin.js"></script>
+
+<!-- Footer mit Navigationslinks -->
+<footer>
+    <div class="footer-content">
+        <a href="index.html">Startseite</a>
+        <span>|</span>
+        <a href="impressum.html">Impressum</a>
+        <span>|</span>
+        <a href="datenschutz.html">Datenschutz</a>
     </div>
-</div>
+</footer>
+
 </body>
 </html>
