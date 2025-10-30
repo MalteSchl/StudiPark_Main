@@ -80,7 +80,7 @@ function updateDashboard() {
   document.getElementById("westPercent").textContent = occWest.toFixed(1) + "%";
 }
 
-// Parking table rendering
+// Tabelle befüllen
 
 function renderParkingTable() {
   const container = document.getElementById('parkingTableContainer');
@@ -158,7 +158,7 @@ function renderParkingTable() {
 }
 
 // -------------------------------
-// Add new parking row
+// Add new Reihe
 // -------------------------------
 function addParkingRow() {
   const area = prompt("Welcher Bereich? West oder Ost?");
